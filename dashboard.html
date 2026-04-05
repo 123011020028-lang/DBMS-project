@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Blood Donation System</h2>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="#" onclick="logoutUser()">Logout</a>
+    </div>
+</div>
+
+<div class="center-dashboard">
+    <h2>Welcome, Donor</h2>
+    <p class="sub-text">Your donation can save lives ❤️</p>
+
+    <div class="dash-cards">
+        <div class="dash-card" onclick="location.href='profile.html'">
+            <h3>👤 Profile</h3>
+            <p>View or update your donor details</p>
+        </div>
+
+       <div class="dash-card" onclick="location.href='find_hospitals.html'">
+    <h3>🏥 Find Hospitals</h3>
+    <p>Locate nearest hospitals automatically</p>
+</div>
+
+<div class="dash-card" onclick="location.href='match.html'">
+    <h3>🩸 Compatibility</h3>
+    <p>Check donation/receiving compatibility</p>
+</div>
+
+
+        <div class="dash-card" onclick="location.href='emergency.html'">
+            <h3>🚨 Emergency Alert</h3>
+            <p>Send urgent alert to hospitals</p>
+        </div>
+    </div>
+</div>
+
+<script>
+function logoutUser() {
+    alert("Logged out successfully!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

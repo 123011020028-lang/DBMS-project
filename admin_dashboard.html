@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #8B0000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .btn {
+            display: block;
+            width: 250px;
+            margin: 15px auto;
+            padding: 14px;
+            background: #8B0000;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #B30000;
+        }
+
+        .logout {
+            background: black;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header id="welcomeText">
+    Loading...
+</header>
+
+<div class="container">
+
+    <button class="btn" onclick="window.location.href='donor_list.html'">
+        View Donors
+    </button>
+
+    <button class="btn" onclick="window.location.href='request_list.html'">
+        View Requests
+    </button>
+
+    <button class="btn" onclick="window.location.href='match.html'">
+        Match Donor to Patient
+    </button>
+
+    <button class="btn logout" onclick="logout()">
+        Logout
+    </button>
+
+</div>
+
+<script>
+    // Load admin username from localStorage
+    const adminName = localStorage.getItem("adminUser");
+
+    if (!adminName) {
+        // If no admin logged in, redirect back
+        window.location.href = "admin_login.html";
+    }
+
+    // Display welcome text
+    document.getElementById("welcomeText").innerText =
+        "Welcome, " + adminName + " (Admin)";
+
+    // Logout function
+    function logout() {
+        localStorage.removeItem("adminUser");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body { font-family: "Segoe UI", sans-serif; background: #f7f7f7; margin: 0; padding: 20px; }
+        h2 { text-align: center; color: #b30000; }
+        #adminList { margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background: #b30000; color: white; }
+        button { margin: 10px 5px; padding: 10px 20px; border-radius: 6px; border: none; background: #b30000; color: white; cursor: pointer; }
+        button:hover { background: #ff1a1a; }
+        #matchForm { margin-top: 20px; padding: 10px; background: #fff2f2; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <h2>Admin Dashboard</h2>
+
+    <!-- Donor List -->
+    <div id="adminList"></div>
+    <button onclick="exportDonorsCSV()">Export CSV</button>
+    <button onclick="exportDonorsJSON()">Export JSON</button>
+
+    <!-- Match Donors Form -->
+    <div id="matchForm">
+        <h3>Match Donors to Hospital</h3>
+        <label>Blood Group: </label>
+        <select id="matchBlood">
+            <option value="">Select</option>
+            <option value="O-">O-</option><option value="O+">O+</option>
+            <option value="A-">A-</option><option value="A+">A+</option>
+            <option value="B-">B-</option><option value="B+">B+</option>
+            <option value="AB-">AB-</option><option value="AB+">AB+</option>
+        </select>
+        <label>City: </label>
+        <input type="text" id="matchCity" placeholder="Enter city" />
+        <button onclick="showMatches()">Find Donors</button>
+        <div id="matchResult" style="margin-top:10px;"></div>
+    </div>
+
+    <button onclick="goHome()">Back to Home</button>
+
+    <script src="script.js"></script>
+    <script>
+        // Load donors table
+        loadDonors();
+
+        // Matching function
+        function showMatches() {
+            const blood = document.getElementById('matchBlood').value;
+            const city = document.getElementById('matchCity').value.trim();
+            if (!blood || !city) return alert('Select blood group and enter city.');
+
+            const matches = getAllDonors().filter(d => 
+                d.blood === blood && d.city.toLowerCase() === city.toLowerCase()
+            );
+
+            const resultDiv = document.getElementById('matchResult');
+            if (!matches.length) {
+                resultDiv.innerHTML = `<p>No donors found for ${blood} in ${city}.</p>`;
+                return;
+            }
+
+            let html = '<table><tr><th>Name</th><th>Email</th><th>Phone</th><th>Blood</th><th>City</th></tr>';
+            matches.forEach(d => {
+                html += `<tr>
+                            <td>${d.name}</td>
+                            <td>${d.email}</td>
+                            <td>${d.phone}</td>
+                            <td>${d.blood}</td>
+                            <td>${d.city}</td>
+                         </tr>`;
+            });
+            html += '</table>';
+            resultDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
+

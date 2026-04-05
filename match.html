@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Compatibility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Blood Donation System</h2>
+    <div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="profile.html">Profile</a>
+        <a href="index.html">Find Hospitals</a>
+        <a href="#" onclick="logoutUser()">Logout</a>
+    </div>
+</div>
+
+<div class="center-dashboard">
+    <h2>🩸 Blood Compatibility Checker</h2>
+    <p class="sub-text">Based on your stored blood group</p>
+
+    <div id="compatibilityBox" class="result-card">
+        <h3>Your Blood Group: <span id="userBG"></span></h3>
+
+        <div class="compat-section">
+            <h3>✔ You Can Donate To:</h3>
+            <p id="donateTo"></p>
+        </div>
+
+        <div class="compat-section">
+            <h3>✔ You Can Receive From:</h3>
+            <p id="receiveFrom"></p>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function logoutUser() {
+    alert("Logged out successfully!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

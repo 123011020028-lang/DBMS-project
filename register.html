@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Donor Registration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Donor Registration</h2>
+
+    <form id="registerForm">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" required placeholder="Enter your full name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required placeholder="Enter your email">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required placeholder="Enter your password">
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" required placeholder="Enter your age">
+
+        <label for="phone">Phone Number:</label>
+        <input type="text" id="phone" required placeholder="Enter your phone number">
+
+        <label for="blood">Blood Group:</label>
+        <select id="blood" required>
+            <option value="">Select Blood Group</option>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" required placeholder="Enter your city">
+
+        <button type="submit" class="btn">Register</button>
+    </form>
+
+    <div id="successMessage" style="display:none; margin-top:10px; color:green;"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Alert</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            background: #fff5f5;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #b30000;
+            color: white;
+            padding: 15px 20px;
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar a {
+            color: white;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #b30000;
+        }
+
+        .alert-box {
+            padding: 20px;
+            background: #ffe2e2;
+            border-left: 5px solid #b30000;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        #resultBox {
+            display: none;
+            background: #f5faff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid #007bff;
+        }
+
+        .btn {
+            padding: 14px 25px;
+            background: #b30000;
+            color: white;
+            border: none;
+            font-size: 17px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 80%;
+        }
+
+        .btn:hover {
+            background: #7a0000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        Emergency Alert
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="index.html">Home</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="alert-box">
+            🚨 <b>Emergency Blood Request</b><br>
+            Your location will be shared with nearest hospitals.
+        </div>
+
+        <button class="btn" onclick="triggerEmergency()">Send Emergency Alert</button>
+
+        <div id="resultBox"></div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        function triggerEmergency() {
+            document.getElementById("resultBox").style.display = "block";
+            document.getElementById("resultBox").innerHTML = "<p>Detecting location… please wait.</p>";
+
+            // call function from script.js
+            sendEmergencyAlert();
+        }
+    </script>
+
+</body>
+</html>

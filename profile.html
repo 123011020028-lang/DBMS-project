@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Donor Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>Blood Donation System</h2>
+    <div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="index.html">Find Hospitals</a>
+        <a href="#" onclick="logoutUser()">Logout</a>
+    </div>
+</div>
+
+<div class="center-dashboard">
+    <h2>👤 Donor Profile</h2>
+    <p class="sub-text">Update your personal and medical details</p>
+
+    <form id="profileForm">
+        <label>Name</label>
+        <input type="text" id="name" required>
+
+        <label>Age</label>
+        <input type="number" id="age" required>
+
+        <label>Blood Group</label>
+        <select id="bloodGroup" required>
+            <option value="">Select</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+        </select>
+
+        <label>Phone Number</label>
+        <input type="text" id="phone" required>
+
+        <label>City</label>
+        <input type="text" id="city" required>
+
+        <button type="submit">Save Profile</button>
+    </form>
+
+    <div id="saveMsg" class="alert alert-success" style="display:none;">
+        Profile updated successfully!
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function logoutUser() {
+    alert("Logged out successfully!");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
